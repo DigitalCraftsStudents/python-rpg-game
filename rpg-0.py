@@ -15,17 +15,17 @@ def main():
     goblin = Character('Goblin', health=6, power=2)
 
     while hero.is_alive and goblin.is_alive:
-        hero.print_status
-        goblin.print_status
+        print(f'''
+~~~~~CURRENT STATS~~~~~~
+{hero}
+{goblin}
+''')
         # print("> ",)
-        print("""
-
-What do you want to do?
+        print("""What do you want to do?
 1: fight goblin
 2: do nothing
-3. flee
->""",)
-        user_input = input()
+3. flee """)
+        user_input = input('> ')
         if user_input == '1':
             hero.attack(goblin)
             if goblin.health <= 0:

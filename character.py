@@ -11,7 +11,10 @@ class Character:
     def is_alive(self):
         self.health > 0
 
-    def print_status(self):
-        print(f'{self.name} has {self.health} and {self.power}.')
+    # def print_status(self):
+    #     return f'{self.name} has {self.health} and {self.power}.'
+
+    def __str__(self):
+        return f'{self.name} has {self.health} health and {self.power} power.'
 
     
