@@ -1,26 +1,36 @@
 from character import Character
 
 # ----------------
-"""
-In this simple RPG game, the hero fights the goblin. He has the options to:
 
-1. fight goblin
-2. do nothing - in which case the goblin will attack him anyway
-3. flee
-
-"""
 
 def main():
-    hero = Character('Hero')
-    goblin = Character('Goblin', health=6, power=2)
+    user_hero = input('What would you like to name your hero? ')
+    # hero = Character(user_hero)
+    goblin = Character('Goblin', health=20, power=4)
+    special  = int(input(f"""
+What special would you like, {user_hero}?
+1. Max HP
+2. + 10 Power
+3. Cuddly Pet
+> """))
+    if special == 1:
+        hero = Character(user_hero, health=99999)
+        print("\nYOU NOW HAVE 99999 HP.")
+    elif special == 2:
+        hero = Character(user_hero, health=25, power=15)
+        print("\n*10 POWER HAS BEEN ADDED*")
+    elif special == 3:
+        hero = Character(user_hero)
+        cuddlypet = Character('Cuddly Pet', health=999, power=500)
+        print(f"\n{cuddlypet.name} stored in inventory.")
 
     while hero.is_alive and goblin.is_alive:
         print(f'''
-~~~~~CURRENT STATS~~~~~~
+~~~~~~~~~~CURRENT STATS~~~~~~~~~~~
 {hero}
 {goblin}
-''')
-        # print("> ",)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~''')
+        print("> ",)
         print("""What do you want to do?
 1: fight goblin
 2: do nothing
@@ -37,6 +47,7 @@ def main():
             print("GOODBYE")
             break
         else:
+            # line below not working ?
             print(f"Invalid input {user_input}")
         if goblin.is_alive:
             goblin.attack(hero)

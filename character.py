@@ -15,6 +15,6 @@ class Character:
     #     return f'{self.name} has {self.health} and {self.power}.'
 
     def __str__(self):
-        return f'{self.name} has {self.health} health and {self.power} power.'
+        return f'{self.name} has {self.health} HP and {self.power} power.'
 
     
